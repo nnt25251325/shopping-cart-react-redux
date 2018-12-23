@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="theme-color" content="#000000">
+		<link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+		<link rel="stylesheet" href="%PUBLIC_URL%/css/bootstrap.min.css">
+		<link rel="stylesheet" href="%PUBLIC_URL%/css/font-awesome.min.css">
+		<title>www</title>
+	</head>
+	<body>
+		<noscript>
+			You need to enable JavaScript to run this app.
+		</noscript>
+		<div id="root"></div>
+
+		<script src="%PUBLIC_URL%/js/jquery-3.3.1.min.js"></script>
+		<script src="%PUBLIC_URL%/js/bootstrap.min.js"></script>
+		<script>
+			$(function() {
+				$(document.body).on('mouseenter', '[data-toggle="tooltip"]', function() {
+					$(this).tooltip('show');
+				}).on('mouseleaver', '[data-toggle="tooltip"]', function() {
+					$(this).tooltip('hide');
+				});
+
+				$('.dropdown_carts').each(function() {
+					var wrp = $(this),
+							dropdown_menu = $(this).find('.dropdown-menu'),
+							btn_dropdown = $(this).find('.btn_dropdown'),
+							dc_focusout_flag = true;
+				 
+					btn_dropdown.on('click', function() {
+						if(dropdown_menu.is(':hidden')) {
+							wrp.addClass('open');
+						} else {
+							wrp.removeClass('open');
+						}
+					});
+				 
+					wrp.on('mouseenter', function() {
+						dc_focusout_flag = false;
+					})
+					$('.dropdown_carts').on('mouseleave', function() {
+						dc_focusout_flag = true;
+					});
+				 
+					$(document.body).on('click', function() {
+						if(dc_focusout_flag) {
+							wrp.removeClass('open');
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>
