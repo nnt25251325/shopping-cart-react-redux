@@ -19,7 +19,7 @@ class HomePage extends Component {
 						<span className="label label-info">#jsonserver</span>&nbsp;
 						<span className="label label-info">#mockapidotio</span>
 					</p>
-					<p className="text-center"><a href="https://github.com/nnt25251325/shopping_cart_react_redux_v1/" target="_blank" rel="noopener noreferrer" className="btn btn-default btn-sm">Tải về</a></p>
+					<p className="text-center"><a href="https://github.com/nnt25251325/shopping-cart-react-redux/" target="_blank" rel="noopener noreferrer" className="btn btn-default btn-sm">Tải về</a></p>
 				</div>
 			</div>
 		);
