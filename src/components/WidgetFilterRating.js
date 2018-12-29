@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
 
-const ratingList = [5, 4, 3, 2, 1];
-
 class WidgetFilterRating extends Component {
-	showRatingRange = (ratingList) => {
-		var { products, filterRating } = this.props;
+	showRatingRange = () => {
 		var result = [];
 		var total = 0;
 		var isChecked = false;
-		result = ratingList.map((rating, index) => {
+		result = this.props.ratingList.map((rating, index) => {
 			total = 0;
-			if (filterRating !== null) {
+			if (this.props.filterRating !== null) {
 				isChecked = false;
-				if(rating === filterRating) isChecked = true;
+				if(rating === this.props.filterRating) isChecked = true;
 			}
-			products.forEach((product) => {
+			this.props.products.forEach((product) => {
 				if(product.rating >= rating) {
 					total++;
 				}
@@ -76,11 +73,15 @@ class WidgetFilterRating extends Component {
 			<div className="widget widget_rating">
 				<h5 className="st_title"><strong>Đánh giá</strong></h5>
 				<ul>
-					{ this.showRatingRange(ratingList) }
+					{ this.showRatingRange() }
 				</ul>
 			</div>
 		);
 	}
 }
+
+WidgetFilterRating.defaultProps = {
+	ratingList: [5, 4, 3, 2, 1]
+};
 
 export default WidgetFilterRating;

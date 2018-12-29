@@ -5,7 +5,7 @@ class ProductItemMng extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isShowMoreDesc: false
+			isShowAllDesc: false
 		};
 	}
 
@@ -79,9 +79,9 @@ class ProductItemMng extends Component {
 		} else {
 			return (
 				<td className="col_description">
-					{ this.state.isShowMoreDesc ? description : this.shortenParagraph(description, 60, " ") }
-					<button onClick={ () => this.setState({ isShowMoreDesc: !this.state.isShowMoreDesc }) } className="btn_readmore">
-						{ this.state.isShowMoreDesc ? 'Thu gọn' : 'Xem thêm' }
+					{ this.state.isShowAllDesc ? description : this.shortenParagraph(description, 60, " ") }
+					<button onClick={ () => this.setState({ isShowAllDesc: !this.state.isShowAllDesc }) } className="btn_readmore">
+						{ this.state.isShowAllDesc ? 'Thu gọn' : 'Xem thêm' }
 					</button>
 				</td>
 			);

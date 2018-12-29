@@ -1,22 +1,33 @@
 import React, { Component } from 'react';
 
-const trademarkList = ["Apple", "Samsung", "Nokia", "Sony", "Xiaomi"];
-
 class WidgetFilterTrademark extends Component {
-	showTrademarkItem = (trademarkList) => {
-		var { filterTrademark, products } = this.props;
-		var result = [];
-		var total = 0;
-		var isChecked = false;
+	constructor(props) {
+		super(props);
+		this.state = {
+			limitItem: 5,
+			isShowAll: false
+		};
+	}
+
+	showTrademarkItem = () => {
+		var trademarkList = [],
+				result,
+				total = 0,
+				isChecked = false;
+		if(this.state.isShowAll) {//hiện tất cả
+			trademarkList = this.props.trademarkList;
+		} else {//hiện có giới hạn
+			trademarkList = this.props.trademarkList.slice(0, this.state.limitItem)
+		}
 		result = trademarkList.map((trademark, index) => {
 			total = 0;
-			if(filterTrademark.length > 0) {
+			if(this.props.filterTrademark.length > 0) {
 				isChecked = false;
-				filterTrademark.forEach((item) => {
+				this.props.filterTrademark.forEach((item) => {
 					if(trademark === item) isChecked = true;
 				});
 			}
-			products.forEach((product) => {
+			this.props.products.forEach((product) => {
 				if(trademark === product.trademark) total++;
 			});
 			return (
@@ -58,11 +69,20 @@ class WidgetFilterTrademark extends Component {
 			<div className="widget widget_trademark">
 				<h5 className="st_title"><strong>Thương hiệu</strong></h5>
 				<ul>
-					{ this.showTrademarkItem(trademarkList) }
+					{ this.showTrademarkItem() }
+					{this.props.trademarkList.length > this.state.limitItem ?
+						<button onClick={ () => this.setState({ isShowAll: !this.state.isShowAll }) } className="btn_readmore">
+							{ this.state.isShowAll ? 'Thu gọn' : 'Xem thêm' }
+						</button> : ''
+					}
 				</ul>
 			</div>
 		);
 	}
 }
+
+WidgetFilterTrademark.defaultProps = {
+	trademarkList: ['Apple', 'Samsung', 'Nokia', 'Sony', 'Xiaomi', 'Philips', 'Vsmart', 'OPPO']
+};
 
 export default WidgetFilterTrademark;

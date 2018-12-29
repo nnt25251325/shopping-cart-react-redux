@@ -15,7 +15,7 @@ class ProductActionMngPage extends Component {
 			photo: 'https://via.placeholder.com/680x460',
 			price_original: 0,
 			discount: 0,
-			rating: 0,
+			rating: 3,
 			description: '',
 			trademark: 'Không xác định',
 			inventory: 0
@@ -197,11 +197,9 @@ class ProductActionMngPage extends Component {
 												onChange={this.onHandleChange}
 											>
 												<option value="Không xác định" disabled="disabled">Vui lòng chọn</option>
-												<option value="Apple">Apple</option>
-												<option value="Samsung">Samsung</option>
-												<option value="Nokia">Nokia</option>
-												<option value="Sony">Sony</option>
-												<option value="Xiaomi">Xiaomi</option>
+												{this.props.trademarkList.map(
+													(item, index) => <option key={index} value={item}>{item}</option>
+												)}
 											</select>
 										</div>
 										<div className="form-group">
@@ -269,6 +267,10 @@ const mapDispatchToProps= (dispatch, props) => {
 			dispatch(actUpdateProductRequest(product));
 		}
 	};
+};
+
+ProductActionMngPage.defaultProps = {
+	trademarkList: ['Apple', 'Samsung', 'Nokia', 'Sony', 'Xiaomi', 'Philips', 'Vsmart', 'OPPO']
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductActionMngPage);
