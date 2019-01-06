@@ -118,7 +118,7 @@ class ProductListPage extends Component {
 
 	onUnCheckFilter = () => {
 		var cbk = document.getElementsByClassName('cbk');
-		for (var i = 0; i < cbk.length; i++) {
+		for (let i = 0; i < cbk.length; i++) {
 			cbk[i].checked = false;
 		}
 	}
@@ -193,7 +193,7 @@ class ProductListPage extends Component {
 		// Lọc theo thương hiệu
 		if(filterTrademark.length) {
 			products = products.filter((product) => {
-				for (var i = 0; i < filterTrademark.length; i++) {
+				for (let i = 0; i < filterTrademark.length; i++) {
 					if(product.trademark.indexOf(filterTrademark[i]) !== -1) {
 						return true;
 					}
@@ -207,7 +207,7 @@ class ProductListPage extends Component {
 			let price_sale = 0;
 			products = products.filter((product) => {
 				price_sale = parseInt(product.price_original*(100-product.discount)/100);
-				for (var i = 0; i < filterPrice.length; i++) {
+				for (let i = 0; i < filterPrice.length; i++) {
 					if(filterPrice[i].max === 'infinity') {
 						if(price_sale >= parseInt(filterPrice[i].min)) {
 							return true;

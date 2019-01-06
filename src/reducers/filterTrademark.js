@@ -31,7 +31,7 @@ var filterTrademark = (state = initialState, action) => {
 var findIndex = (list, value) => {
 	var result = -1;
 	if(list.length > 0) {
-		for (var i = 0; i < list.length; i++) {
+		for (let i = 0; i < list.length; i++) {
 			if(list[i] === value) {
 				result = i;
 				break;

@@ -35,7 +35,7 @@ var filterPrice = (state = initialState, action) => {
 var findIndex = (list, name) => {
 	var result = -1;
 	if(list.length > 0) {
-		for (var i = 0; i < list.length; i++) {
+		for (let i = 0; i < list.length; i++) {
 			if(list[i].name === name) {
 				result = i;
 				break;

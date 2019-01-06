@@ -42,7 +42,7 @@ var products = (state = initialState, action) => {
 var findIndex = (list, id) => {
 	var result = -1;
 	if(list.length > 0) {
-		for (var i = 0; i < list.length; i++) {
+		for (let i = 0; i < list.length; i++) {
 			if(list[i].id === id) {
 				result = i;
 				break;

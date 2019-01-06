@@ -55,7 +55,7 @@ class CartPage extends Component {
 	showTotalProduct = (cart) => {
 		var total = 0;
 		if(cart.length > 0) {
-			for (var i = 0; i < cart.length; i++) {
+			for (let i = 0; i < cart.length; i++) {
 				total += cart[i].quantity
 			}
 		}
@@ -69,7 +69,7 @@ class CartPage extends Component {
 				discount = 0,
 				price_sale = 0;
 		if(cart.length > 0) {
-			for (var i = 0; i < cart.length; i++) {
+			for (let i = 0; i < cart.length; i++) {
 				quantity = cart[i].quantity;
 				price_original = cart[i].product.price_original;
 				discount = cart[i].product.discount;

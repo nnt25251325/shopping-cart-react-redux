@@ -123,7 +123,7 @@ export const actFetchCart = (cart) => {
 	}
 }
 
-export const actAddToCartRequest = (product, quantity, timer) => {
+export const actAddToCartRequest = (product, quantity) => {
 	return (dispatch) => {
 		document.getElementById('api_loading').classList.add('show');
 		callApi('shopping_cart_01_cart', 'GET', null).then((res) => {
@@ -137,7 +137,7 @@ export const actAddToCartRequest = (product, quantity, timer) => {
 				var index = -1;
 				var cart_item_id = 0;
 				var new_quantity = 0;
-				for (var i = 0; i < res.data.length; i++) {
+				for (let i = 0; i < res.data.length; i++) {
 					if(res.data[i].product.id === product.id) { //đã tìm thấy 1 sản phẩm trong giỏ hàng
 						index = i;
 						cart_item_id = res.data[i].id;
