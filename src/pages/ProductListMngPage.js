@@ -83,7 +83,7 @@ class ProductListMngPage extends Component {
 		// Tìm kiếm
 		if(keyword) {
 			products = products.filter((product) => {
-				return product.name.toLowerCase().indexOf(keyword) !== -1
+				return product.name.toLowerCase().indexOf(keyword) !== -1 || product.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1
 			});
 		}
 
