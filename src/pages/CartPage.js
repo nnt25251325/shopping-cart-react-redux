@@ -105,6 +105,7 @@ class CartPage extends Component {
 		return (
 			<div className="section con_cart">
 				<div className="container">
+					<p className="text-right">(===> Nhấn vào <strong>Thanh toán</strong> để Redirect đến trang <strong>Thanh toán thành công</strong>)</p>
 					<div className="cart_count mb-15">
 						<strong>Giỏ hàng của bạn</strong> <span>(Có {this.showTotalProduct(cart)} sản phẩm)</span>
 					</div>
