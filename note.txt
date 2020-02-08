@@ -1,2 +1,0 @@
-
-Shopping Cart - React - Redux - Api - Axios
